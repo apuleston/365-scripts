@@ -2,13 +2,21 @@
 .SYNOPSIS
     Imports passwords for a collection of users from a CSV file
 .DESCRIPTION
-    
+    Imports passwords for a collection of users from a CSV file. The CSV file should contain two columns:
+    - UserPrincipalName
+    - Password
+    Any additional columns will be ignored
 .NOTES
     
 .LINK
     
 .EXAMPLE
-    
+    PS> Import-PasswordsFromCSV.ps1 -CsvPath "path-to-csv-file.csv" -ForceChange $True
+    Import the passwords and require the user to change their password at next sign in.
+
+.EXAMPLE
+    PS> Import-PasswordsFromCSV.ps1 -CsvPath "path-to-csv-file.csv" -ForceChange $False
+    Import the passwords and *do not* require the user to change their password at next sign in.
 #>
 
 param(
